@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center mb-5">Listado de alumnos</h1>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">
+            <strong>#</strong>
+          </th>
+          <th scope="col">
+            <strong>Nombre</strong>
+          </th>
+          <th scope="col">
+            <strong>Apellido</strong>
+          </th>
+          <th scope="col">
+            <strong>DNI</strong>
+          </th>
+          <th scope="col">
+            <strong>Fecha de Ingreso</strong>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr
+          class="text-center"
+          *ngFor="let alumno of alumnos; index as i"
+          [ngClass]="alumno.aprobado ? 'table-success' : 'table-danger'"
+        >
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            {{ alumno.nombre | uppercase }}
+          </td>
+          <td>
+            {{ alumno.apellido | uppercase }}
+          </td>
+          <td>
+            {{ alumno.dni | number }}
+          </td>
+          <td>
+            {{ alumno.fechaIngreso | date : "dd/MM/yyyy" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
